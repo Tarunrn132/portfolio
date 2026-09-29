@@ -1,185 +1,640 @@
 <!DOCTYPE html>
-
 <html lang="en" class="scroll-smooth">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Tarun R Naik | Software Developer & Data Science Enthusiast</title>
+    <title>Tarun R Naik | Software Developer & ML Enthusiast</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['Poppins', 'sans-serif'],
-                },
-                colors: {
-                    brand: {
-                        dark: '#0B0F19',
-                        card: 'rgba(255, 255, 255, 0.03)',
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+
+                    colors: {
+
+                        brand: {
+                            dark: '#0B0F19',
+                            darker: '#080C14',
+                            card: 'rgba(255,255,255,0.03)',
+                        }
+
+                    },
+
+                    animation: {
+
+                        blob: 'blob 8s infinite',
+
+                        float:
+                            'float 5s ease-in-out infinite',
+
+                    },
+
+                    keyframes: {
+
+                        blob: {
+
+                            '0%, 100%': {
+                                transform:
+                                    'translate(0px, 0px) scale(1)'
+                            },
+
+                            '33%': {
+                                transform:
+                                    'translate(30px, -50px) scale(1.05)'
+                            },
+
+                            '66%': {
+                                transform:
+                                    'translate(-20px, 20px) scale(0.95)'
+                            }
+
+                        },
+
+                        float: {
+
+                            '0%, 100%': {
+                                transform:
+                                    'translateY(0)'
+                            },
+
+                            '50%': {
+                                transform:
+                                    'translateY(-10px)'
+                            }
+
+                        }
+
                     }
+
                 }
+
             }
+
         }
-    }
-</script>
 
-<style>
-    body {
-        background-color: #0B0F19;
-        color: #E2E8F0;
-        overflow-x: hidden;
-    }
+    </script>
 
-    .glass {
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-    }
 
-    .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: transform 0.3s ease,
-                    box-shadow 0.3s ease,
-                    border-color 0.3s ease;
-    }
+    <style>
 
-    .glass-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.3);
-        border-color: rgba(139, 92, 246, 0.4);
-    }
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
 
-    .text-gradient {
-        background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
+        * {
+            scroll-behavior: smooth;
+        }
 
-    .btn-gradient {
-        background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
 
-    .btn-gradient:hover {
-        opacity: 0.9;
-        transform: scale(1.05);
-    }
+        body {
 
-    .reveal {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-    }
+            background-color: #0B0F19;
 
-    .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-    }
+            color: #E2E8F0;
 
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
+            overflow-x: hidden;
 
-    ::-webkit-scrollbar-track {
-        background: #0B0F19;
-    }
+        }
 
-    ::-webkit-scrollbar-thumb {
-        background: #4B5563;
-        border-radius: 4px;
-    }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #8B5CF6;
-    }
+        /* =====================================================
+           GLASSMORPHISM
+        ====================================================== */
 
-    .hero-grid {
-        background-image:
-            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-        background-size: 50px 50px;
-    }
-</style>
-```
+        .glass {
+
+            background:
+                rgba(15, 23, 42, 0.65);
+
+            backdrop-filter:
+                blur(14px);
+
+            -webkit-backdrop-filter:
+                blur(14px);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+        }
+
+
+        .glass-card {
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            backdrop-filter:
+                blur(10px);
+
+            -webkit-backdrop-filter:
+                blur(10px);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.07);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+
+        }
+
+
+        .glass-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(139, 92, 246, 0.45);
+
+            box-shadow:
+                0 18px 45px -18px
+                rgba(139, 92, 246, 0.35);
+
+        }
+
+
+        /* =====================================================
+           GRADIENT TEXT
+        ====================================================== */
+
+        .text-gradient {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #60A5FA 0%,
+                    #8B5CF6 50%,
+                    #C084FC 100%
+                );
+
+            -webkit-background-clip:
+                text;
+
+            -webkit-text-fill-color:
+                transparent;
+
+            background-clip:
+                text;
+
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ====================================================== */
+
+        .btn-gradient {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563EB 0%,
+                    #7C3AED 100%
+                );
+
+            transition:
+                transform 0.3s ease,
+                opacity 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .btn-gradient:hover {
+
+            transform:
+                translateY(-2px);
+
+            opacity:
+                0.95;
+
+            box-shadow:
+                0 15px 35px
+                rgba(79, 70, 229, 0.3);
+
+        }
+
+
+        /* =====================================================
+           HERO GRID
+        ====================================================== */
+
+        .hero-grid {
+
+            background-image:
+
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size:
+                50px 50px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black 30%,
+                    transparent 100%
+                );
+
+        }
+
+
+        /* =====================================================
+           PROFILE IMAGE
+        ====================================================== */
+
+        .profile-ring {
+
+            padding:
+                5px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3B82F6,
+                    #8B5CF6,
+                    #C084FC
+                );
+
+            border-radius:
+                9999px;
+
+            box-shadow:
+                0 0 50px
+                rgba(99, 102, 241, 0.25);
+
+        }
+
+
+        .profile-image {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center top;
+
+            border-radius:
+                9999px;
+
+            display:
+                block;
+
+        }
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        .reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s
+                cubic-bezier(0.5, 0, 0, 1);
+
+        }
+
+
+        .reveal.active {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ====================================================== */
+
+        .skill-card {
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+
+        }
+
+
+        .skill-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(96, 165, 250, 0.35);
+
+            background:
+                rgba(255,255,255,0.055);
+
+        }
+
+
+        /* =====================================================
+           PROJECT
+        ====================================================== */
+
+        .project-visual {
+
+            transition:
+                transform 0.5s ease;
+
+        }
+
+
+        .project-card:hover
+        .project-visual {
+
+            transform:
+                scale(1.04);
+
+        }
+
+
+        /* =====================================================
+           TIMELINE
+        ====================================================== */
+
+        .timeline-line {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #8B5CF6,
+                    rgba(139,92,246,0.1)
+                );
+
+        }
+
+
+        /* =====================================================
+           TECH TAGS
+        ====================================================== */
+
+        .tech-tag {
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                500;
+
+            padding:
+                0.35rem 0.65rem;
+
+            border-radius:
+                9999px;
+
+            color:
+                #CBD5E1;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+        }
+
+
+        /* =====================================================
+           SCROLLBAR
+        ====================================================== */
+
+        ::-webkit-scrollbar {
+
+            width:
+                8px;
+
+        }
+
+
+        ::-webkit-scrollbar-track {
+
+            background:
+                #080C14;
+
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+
+            background:
+                #374151;
+
+            border-radius:
+                10px;
+
+        }
+
+
+        ::-webkit-scrollbar-thumb:hover {
+
+            background:
+                #8B5CF6;
+
+        }
+
+
+        /* =====================================================
+           SELECTION
+        ====================================================== */
+
+        ::selection {
+
+            background:
+                #7C3AED;
+
+            color:
+                white;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 768px) {
+
+            .hero-grid {
+
+                background-size:
+                    35px 35px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
-<body class="antialiased selection:bg-purple-500 selection:text-white">
 
-<!-- ================= NAVBAR ================= -->
+<body class="antialiased">
 
-<nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
 
-```
-<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- ============================================================
+     NAVBAR
+============================================================= -->
 
-    <div class="flex items-center justify-between h-20">
+<nav
+    id="navbar"
+    class="fixed top-0 left-0 w-full z-50 glass transition-all duration-300"
+>
 
-        <div class="flex-shrink-0">
-            <a href="#hero"
-               class="text-2xl font-bold text-white tracking-tighter">
-                TARUN<span class="text-blue-500"> RN</span>
+    <div
+        class="max-w-7xl mx-auto px-6 lg:px-8"
+    >
+
+        <div
+            class="h-20 flex items-center justify-between"
+        >
+
+
+            <!-- LOGO -->
+
+            <a
+                href="#"
+                class="text-2xl font-bold tracking-tight text-white"
+            >
+
+                TARUN
+
+                <span class="text-blue-500">
+                    R NAIK
+                </span>
+
             </a>
-        </div>
 
-        <div class="hidden md:block">
 
-            <div class="ml-10 flex items-baseline space-x-8">
+            <!-- DESKTOP MENU -->
 
-                <a href="#about"
-                   class="text-gray-300 hover:text-white transition-colors">
+            <div
+                class="hidden md:flex items-center gap-8"
+            >
+
+                <a
+                    href="#about"
+                    class="text-gray-300 hover:text-white transition"
+                >
                     About
                 </a>
 
-                <a href="#skills"
-                   class="text-gray-300 hover:text-white transition-colors">
+                <a
+                    href="#skills"
+                    class="text-gray-300 hover:text-white transition"
+                >
                     Skills
                 </a>
 
-                <a href="#projects"
-                   class="text-gray-300 hover:text-white transition-colors">
+                <a
+                    href="#projects"
+                    class="text-gray-300 hover:text-white transition"
+                >
                     Projects
                 </a>
 
-                <a href="#training"
-                   class="text-gray-300 hover:text-white transition-colors">
+                <a
+                    href="#training"
+                    class="text-gray-300 hover:text-white transition"
+                >
                     Training
                 </a>
 
-                <a href="#education"
-                   class="text-gray-300 hover:text-white transition-colors">
+                <a
+                    href="#education"
+                    class="text-gray-300 hover:text-white transition"
+                >
                     Education
                 </a>
 
-                <a href="#contact"
-                   class="px-4 py-2 rounded-full border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white transition-all">
+                <a
+                    href="#certifications"
+                    class="text-gray-300 hover:text-white transition"
+                >
+                    Certifications
+                </a>
+
+                <a
+                    href="#contact"
+                    class="px-5 py-2.5 rounded-full border border-purple-500/60 text-purple-400 hover:bg-purple-500 hover:text-white transition"
+                >
                     Let's Talk
                 </a>
 
             </div>
 
-        </div>
 
-        <div class="md:hidden">
+            <!-- MOBILE BUTTON -->
 
-            <button id="mobile-menu-btn"
-                    class="text-gray-300 hover:text-white focus:outline-none p-2">
+            <button
+                id="mobile-menu-btn"
+                class="md:hidden text-gray-300 hover:text-white p-2"
+                aria-label="Open menu"
+            >
 
-                <i class="fas fa-bars text-2xl"></i>
+                <i
+                    class="fas fa-bars text-2xl"
+                ></i>
 
             </button>
 
@@ -187,1306 +642,2240 @@
 
     </div>
 
-</div>
 
-<!-- MOBILE MENU -->
+    <!-- MOBILE MENU -->
 
-<div id="mobile-menu"
-     class="hidden md:hidden glass border-t border-white/10 absolute w-full">
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden glass border-t border-white/10"
+    >
 
-    <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3 flex flex-col items-center">
+        <div
+            class="px-6 py-5 flex flex-col items-center gap-2"
+        >
 
-        <a href="#about"
-           class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">
-            About
-        </a>
+            <a
+                href="#about"
+                class="mobile-link py-2 text-gray-300"
+            >
+                About
+            </a>
 
-        <a href="#skills"
-           class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">
-            Skills
-        </a>
+            <a
+                href="#skills"
+                class="mobile-link py-2 text-gray-300"
+            >
+                Skills
+            </a>
 
-        <a href="#projects"
-           class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">
-            Projects
-        </a>
+            <a
+                href="#projects"
+                class="mobile-link py-2 text-gray-300"
+            >
+                Projects
+            </a>
 
-        <a href="#training"
-           class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">
-            Training
-        </a>
+            <a
+                href="#training"
+                class="mobile-link py-2 text-gray-300"
+            >
+                Training
+            </a>
 
-        <a href="#education"
-           class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white">
-            Education
-        </a>
+            <a
+                href="#education"
+                class="mobile-link py-2 text-gray-300"
+            >
+                Education
+            </a>
 
-        <a href="#contact"
-           class="block mt-4 px-6 py-2 rounded-full border border-purple-500 text-purple-400">
-            Contact
-        </a>
+            <a
+                href="#certifications"
+                class="mobile-link py-2 text-gray-300"
+            >
+                Certifications
+            </a>
+
+            <a
+                href="#contact"
+                class="mobile-link py-2 text-gray-300"
+            >
+                Contact
+            </a>
+
+        </div>
 
     </div>
-
-</div>
-```
 
 </nav>
 
-<!-- ================= HERO ================= -->
 
-<section id="hero"
-         class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden hero-grid">
 
-```
-<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full mix-blend-screen filter blur-3xl opacity-50">
-</div>
+<!-- ============================================================
+     HERO
+============================================================= -->
 
-<div class="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full mix-blend-screen filter blur-3xl">
-</div>
+<section
+    id="hero"
+    class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+>
 
-<div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center reveal">
 
-    <p class="text-blue-400 font-medium tracking-wide mb-4">
-        INFORMATION SCIENCE & ENGINEERING STUDENT
-    </p>
+    <!-- GRID -->
 
-    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+    <div
+        class="absolute inset-0 hero-grid opacity-50"
+    ></div>
 
-        I'm
-        <span class="text-gradient">
-            Tarun R Naik
-        </span>
 
-    </h1>
+    <!-- BLUE GLOW -->
 
-    <h2 class="text-2xl md:text-3xl text-gray-400 font-medium mb-8">
+    <div
+        class="absolute top-1/4 left-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl animate-blob"
+    ></div>
 
-        Software Developer
-        <span class="text-purple-400">&</span>
-        Data Science Enthusiast
 
-    </h2>
+    <!-- PURPLE GLOW -->
 
-    <p class="mt-4 max-w-3xl text-lg text-gray-400 mx-auto mb-10 leading-relaxed">
+    <div
+        class="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl animate-blob"
+        style="animation-delay:2s;"
+    ></div>
 
-        Information Science & Engineering student at Nitte Meenakshi Institute
-        of Technology with hands-on experience in Python, Java, machine learning,
-        backend development, data analytics, and intelligent transportation systems.
 
-    </p>
+    <!-- HERO CONTENT -->
 
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+    <div
+        class="max-w-6xl mx-auto px-6 relative z-10 text-center reveal"
+    >
 
-        <a href="#projects"
-           class="w-full sm:w-auto px-8 py-3 rounded-full btn-gradient text-white font-medium shadow-lg shadow-blue-500/30">
+        <p
+            class="text-blue-400 font-medium tracking-[0.25em] text-sm mb-5"
+        >
+            INFORMATION SCIENCE & ENGINEERING
+        </p>
 
-            View My Projects
 
-        </a>
+        <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-5"
+        >
 
-        <a href="#resume"
-           class="w-full sm:w-auto px-8 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-colors">
+            Hi, I'm
 
-            <i class="fas fa-file-pdf mr-2"></i>
-            Resume
+            <span class="text-gradient">
+                Tarun R Naik
+            </span>
 
-        </a>
+        </h1>
 
-    </div>
 
-    <div class="flex items-center justify-center space-x-6">
+        <h2
+            class="text-2xl md:text-3xl text-gray-300 font-medium mb-7"
+        >
 
-        <a href="https://github.com/Tarunrn132"
-           target="_blank"
-           class="text-gray-400 hover:text-white transform hover:-translate-y-1 transition-all text-2xl">
+            Software Developer
 
-            <i class="fab fa-github"></i>
+            <span class="text-purple-400">
+                ·
+            </span>
 
-        </a>
+            ML Enthusiast
 
-        <a href="https://www.linkedin.com/in/tarun-r-n-a7801a385"
-           target="_blank"
-           class="text-gray-400 hover:text-blue-500 transform hover:-translate-y-1 transition-all text-2xl">
-
-            <i class="fab fa-linkedin"></i>
-
-        </a>
-
-        <a href="mailto:tarunrn13@gmail.com"
-           class="text-gray-400 hover:text-red-400 transform hover:-translate-y-1 transition-all text-2xl">
-
-            <i class="fas fa-envelope"></i>
-
-        </a>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about"
-         class="py-24 bg-brand-dark relative z-10">
-
-```
-<div class="max-w-7xl mx-auto px-6 lg:px-8 reveal">
-
-    <div class="flex flex-col md:flex-row gap-16 items-center">
-
-        <div class="w-full md:w-1/2">
-
-            <div class="relative rounded-2xl overflow-hidden glass-card p-2">
-
-                <div class="aspect-square rounded-xl bg-gradient-to-tr from-gray-800 to-gray-900 flex items-center justify-center border border-white/5">
-
-                    <div class="text-center">
-
-                        <i class="fas fa-laptop-code text-7xl text-blue-500/60 mb-6"></i>
-
-                        <h3 class="text-2xl font-bold text-white">
-                            Tarun R Naik
-                        </h3>
-
-                        <p class="text-gray-400 mt-2">
-                            Information Science & Engineering
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="w-full md:w-1/2">
-
-            <h2 class="text-sm font-bold text-blue-500 tracking-widest uppercase mb-2">
-                About Me
-            </h2>
-
-            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
-
-                Building
-                <span class="text-gradient">practical solutions</span>
-                with technology.
-
-            </h3>
-
-            <p class="text-gray-400 mb-6 leading-relaxed">
-
-                I am a B.E. Information Science & Engineering student at
-                Nitte Meenakshi Institute of Technology, Bengaluru, with an
-                interest in software development, data science, machine learning,
-                and intelligent systems.
-
-            </p>
-
-            <p class="text-gray-400 mb-8 leading-relaxed">
-
-                My work focuses on solving real-world problems through
-                machine learning, backend development, data analysis, and
-                full-stack application development. I enjoy turning datasets,
-                algorithms, and software technologies into practical applications.
-
-            </p>
-
-
-            <div class="grid grid-cols-2 gap-6">
-
-                <div class="glass-card p-4 rounded-xl text-center">
-
-                    <h4 class="text-3xl font-bold text-white mb-1">
-                        2027
-                    </h4>
-
-                    <p class="text-sm text-gray-400">
-                        Expected Graduation
-                    </p>
-
-                </div>
-
-
-                <div class="glass-card p-4 rounded-xl text-center">
-
-                    <h4 class="text-3xl font-bold text-white mb-1">
-                        3+
-                    </h4>
-
-                    <p class="text-sm text-gray-400">
-                        Major Projects
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills"
-         class="py-24 bg-[#0a0e17] relative z-10 border-t border-white/5">
-
-```
-<div class="max-w-7xl mx-auto px-6 lg:px-8 reveal">
-
-    <div class="text-center mb-16">
-
-        <h2 class="text-sm font-bold text-purple-500 tracking-widest uppercase mb-2">
-            My Toolkit
         </h2>
 
-        <h3 class="text-3xl md:text-4xl font-bold text-white">
-            Technical Skills
-        </h3>
 
-    </div>
+        <p
+            class="max-w-2xl mx-auto text-gray-400 text-lg leading-relaxed mb-10"
+        >
 
-
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-
-        <!-- C -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fas fa-code text-4xl text-blue-400"></i>
-
-            <span class="font-medium">
-                C
-            </span>
-
-        </div>
-
-
-        <!-- Python -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fab fa-python text-4xl text-yellow-400"></i>
-
-            <span class="font-medium">
-                Python
-            </span>
-
-        </div>
-
-
-        <!-- Java -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fab fa-java text-4xl text-red-400"></i>
-
-            <span class="font-medium">
-                Java
-            </span>
-
-        </div>
-
-
-        <!-- MySQL -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fas fa-database text-4xl text-blue-300"></i>
-
-            <span class="font-medium">
-                MySQL
-            </span>
-
-        </div>
-
-
-        <!-- Pandas -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fas fa-table text-4xl text-purple-400"></i>
-
-            <span class="font-medium">
-                Pandas
-            </span>
-
-        </div>
-
-
-        <!-- NumPy -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fas fa-calculator text-4xl text-blue-400"></i>
-
-            <span class="font-medium">
-                NumPy
-            </span>
-
-        </div>
-
-
-        <!-- Scikit Learn -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fas fa-brain text-4xl text-orange-400"></i>
-
-            <span class="font-medium">
-                Scikit-learn
-            </span>
-
-        </div>
-
-
-        <!-- Machine Learning -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fas fa-robot text-4xl text-purple-400"></i>
-
-            <span class="font-medium">
-                Machine Learning
-            </span>
-
-        </div>
-
-
-        <!-- Time Series -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fas fa-chart-line text-4xl text-green-400"></i>
-
-            <span class="font-medium">
-                Time Series
-            </span>
-
-        </div>
-
-
-        <!-- HTML -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fab fa-html5 text-4xl text-orange-500"></i>
-
-            <span class="font-medium">
-                HTML
-            </span>
-
-        </div>
-
-
-        <!-- CSS -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fab fa-css3-alt text-4xl text-blue-500"></i>
-
-            <span class="font-medium">
-                CSS
-            </span>
-
-        </div>
-
-
-        <!-- Git -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fab fa-git-alt text-4xl text-orange-500"></i>
-
-            <span class="font-medium">
-                Git
-            </span>
-
-        </div>
-
-
-        <!-- GitHub -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fab fa-github text-4xl text-white"></i>
-
-            <span class="font-medium">
-                GitHub
-            </span>
-
-        </div>
-
-
-        <!-- VS Code -->
-
-        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3">
-
-            <i class="fas fa-code text-4xl text-blue-400"></i>
-
-            <span class="font-medium">
-                VS Code
-            </span>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= PROJECTS ================= -->
-
-<section id="projects"
-         class="py-24 bg-brand-dark relative z-10 border-t border-white/5">
-
-```
-<div class="max-w-7xl mx-auto px-6 lg:px-8 reveal">
-
-    <div class="text-center mb-16">
-
-        <h2 class="text-sm font-bold text-blue-500 tracking-widest uppercase mb-2">
-            Portfolio
-        </h2>
-
-        <h3 class="text-3xl md:text-4xl font-bold text-white">
-            Featured Projects
-        </h3>
-
-    </div>
-
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-
-        <!-- TRAFFIC PROJECT -->
-
-        <div class="glass-card rounded-2xl overflow-hidden flex flex-col">
-
-            <div class="h-48 bg-gray-800 relative overflow-hidden">
-
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 to-purple-900/60 z-10">
-                </div>
-
-                <div class="w-full h-full flex items-center justify-center bg-[#131b2f]">
-
-                    <i class="fas fa-road text-6xl text-blue-500/70"></i>
-
-                </div>
-
-            </div>
-
-
-            <div class="p-6 flex-grow flex flex-col">
-
-                <div class="flex items-center justify-between mb-2">
-
-                    <h4 class="text-xl font-bold text-white">
-                        Traffic Flow Prediction Using GNN
-                    </h4>
-
-                    <span class="text-xs px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                        ML
-                    </span>
-
-                </div>
-
-
-                <p class="text-gray-400 text-sm mb-4 flex-grow">
-
-                    Developed a Graph Neural Network-based traffic prediction
-                    system using Bengaluru traffic data to forecast road
-                    congestion and traffic flow.
-
-                </p>
-
-
-                <div class="space-y-3 mb-6">
-
-                    <div class="flex items-start gap-3">
-
-                        <i class="fas fa-check text-blue-400 mt-1"></i>
-
-                        <p class="text-gray-400 text-sm">
-                            Built an interactive Streamlit dashboard with
-                            route visualization, traffic insights, ETA
-                            prediction, and alternative route planning.
-                        </p>
-
-                    </div>
-
-                    <div class="flex items-start gap-3">
-
-                        <i class="fas fa-check text-blue-400 mt-1"></i>
-
-                        <p class="text-gray-400 text-sm">
-                            Integrated Leaflet and TomTom APIs for
-                            traffic and route visualization.
-                        </p>
-
-                    </div>
-
-                    <div class="flex items-start gap-3">
-
-                        <i class="fas fa-check text-blue-400 mt-1"></i>
-
-                        <p class="text-gray-400 text-sm">
-                            Implemented MAE, RMSE and MAPE for model evaluation.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="flex flex-wrap gap-2 mb-6">
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
-                        Python
-                    </span>
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">
-                        PyTorch
-                    </span>
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-green-500/10 text-green-400 rounded-full border border-green-500/20">
-                        GNN
-                    </span>
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/20">
-                        FastAPI
-                    </span>
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-yellow-500/10 text-yellow-400 rounded-full border border-yellow-500/20">
-                        Streamlit
-                    </span>
-
-                </div>
-
-
-                <div class="flex gap-4 mt-auto">
-
-                    <a href="https://github.com/Tarunrn132"
-                       target="_blank"
-                       class="text-sm font-medium text-white hover:text-blue-400 transition-colors">
-
-                        <i class="fab fa-github mr-1"></i>
-                        GitHub
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- RAILWAY PROJECT -->
-
-        <div class="glass-card rounded-2xl overflow-hidden flex flex-col">
-
-            <div class="h-48 bg-gray-800 relative overflow-hidden">
-
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-900/60 to-blue-900/60 z-10">
-                </div>
-
-                <div class="w-full h-full flex items-center justify-center bg-[#131b2f]">
-
-                    <i class="fas fa-train text-6xl text-purple-500/70"></i>
-
-                </div>
-
-            </div>
-
-
-            <div class="p-6 flex-grow flex flex-col">
-
-                <div class="flex items-center justify-between mb-2">
-
-                    <h4 class="text-xl font-bold text-white">
-                        Railway Reservation System
-                    </h4>
-
-                    <span class="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                        Full Stack
-                    </span>
-
-                </div>
-
-
-                <p class="text-gray-400 text-sm mb-4 flex-grow">
-
-                    Developed a full-stack railway reservation system
-                    supporting train and station search, schedules,
-                    passenger management, fare calculation, seat allocation,
-                    booking, and cancellation.
-
-                </p>
-
-
-                <div class="space-y-3 mb-6">
-
-                    <div class="flex items-start gap-3">
-
-                        <i class="fas fa-check text-purple-400 mt-1"></i>
-
-                        <p class="text-gray-400 text-sm">
-                            Implemented JWT authentication, BCrypt password
-                            hashing, and role-based access control.
-                        </p>
-
-                    </div>
-
-                    <div class="flex items-start gap-3">
-
-                        <i class="fas fa-check text-purple-400 mt-1"></i>
-
-                        <p class="text-gray-400 text-sm">
-                            Integrated a 717-station Indian Railway dataset
-                            for station and train management.
-                        </p>
-
-                    </div>
-
-                    <div class="flex items-start gap-3">
-
-                        <i class="fas fa-check text-purple-400 mt-1"></i>
-
-                        <p class="text-gray-400 text-sm">
-                            Integrated Razorpay payments and Docker-based
-                            application deployment.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="flex flex-wrap gap-2 mb-6">
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-red-500/10 text-red-400 rounded-full border border-red-500/20">
-                        Java 21
-                    </span>
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-green-500/10 text-green-400 rounded-full border border-green-500/20">
-                        Spring Boot
-                    </span>
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
-                        PostgreSQL
-                    </span>
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-orange-500/10 text-orange-400 rounded-full border border-orange-500/20">
-                        Razorpay
-                    </span>
-
-                    <span class="text-xs font-medium px-2.5 py-1 bg-gray-500/10 text-gray-300 rounded-full border border-gray-500/20">
-                        Docker
-                    </span>
-
-                </div>
-
-
-                <div class="flex gap-4 mt-auto">
-
-                    <a href="https://github.com/Tarunrn132/Indian-Railway-Reservation-and-Ticketing-Platform"
-                       target="_blank"
-                       class="text-sm font-medium text-white hover:text-purple-400 transition-colors">
-
-                        <i class="fab fa-github mr-1"></i>
-                        GitHub
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= TRAINING ================= -->
-
-<section id="training"
-         class="py-24 bg-[#0a0e17] relative z-10 border-t border-white/5">
-
-```
-<div class="max-w-5xl mx-auto px-6 lg:px-8 reveal">
-
-    <div class="text-center mb-16">
-
-        <h2 class="text-sm font-bold text-purple-500 tracking-widest uppercase mb-2">
-            Professional Learning
-        </h2>
-
-        <h3 class="text-3xl md:text-4xl font-bold text-white">
-            Training
-        </h3>
-
-    </div>
-
-
-    <div class="relative border-l border-white/10 ml-3 md:ml-6">
-
-        <div class="relative pl-8 md:pl-12">
-
-            <div class="absolute w-4 h-4 bg-purple-500 rounded-full -left-[9px] top-1.5 shadow-[0_0_10px_rgba(139,92,246,0.8)]">
-            </div>
-
-
-            <div class="glass-card p-8 rounded-2xl">
-
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-
-                    <div>
-
-                        <h4 class="text-2xl font-bold text-white">
-                            Data Science Training
-                        </h4>
-
-                        <h5 class="text-blue-400 font-medium mt-1">
-                            Prinston Smart Engineers
-                        </h5>
-
-                    </div>
-
-
-                    <div class="text-sm text-gray-500">
-
-                        <i class="far fa-calendar-alt mr-2"></i>
-
-                        July 2025 – September 2025
-
-                    </div>
-
-                </div>
-
-
-                <p class="text-gray-400 text-sm mb-6">
-
-                    Completed practical training focused on machine learning,
-                    data preprocessing, exploratory data analysis, feature
-                    engineering, model evaluation, and railway occupancy
-                    forecasting.
-
-                </p>
-
-
-                <ul class="space-y-4 text-gray-400 text-sm">
-
-                    <li class="flex items-start gap-3">
-
-                        <i class="fas fa-circle-check text-purple-400 mt-1"></i>
-
-                        <span>
-                            Developed a machine learning-based Vande Bharat
-                            Express occupancy forecasting system using
-                            Random Forest, KNN, SVM, and Decision Tree algorithms.
-                        </span>
-
-                    </li>
-
-
-                    <li class="flex items-start gap-3">
-
-                        <i class="fas fa-circle-check text-purple-400 mt-1"></i>
-
-                        <span>
-                            Performed data preprocessing, exploratory data
-                            analysis, feature engineering, normalization,
-                            and categorical data transformation.
-                        </span>
-
-                    </li>
-
-
-                    <li class="flex items-start gap-3">
-
-                        <i class="fas fa-circle-check text-purple-400 mt-1"></i>
-
-                        <span>
-                            Evaluated machine learning models using Accuracy,
-                            Precision, Recall, and F1-score, achieving
-                            83.33% Accuracy, 69.44% Precision,
-                            83.33% Recall, and 75.76% F1-score.
-                        </span>
-
-                    </li>
-
-
-                    <li class="flex items-start gap-3">
-
-                        <i class="fas fa-circle-check text-purple-400 mt-1"></i>
-
-                        <span>
-                            Analyzed route-wise, temporal, and occupancy
-                            patterns using visualization and correlation
-                            analysis for demand forecasting and railway
-                            capacity planning.
-                        </span>
-
-                    </li>
-
-                </ul>
-
-
-                <div class="mt-8">
-
-                    <a href="https://drive.google.com/drive/u/1/folders/1G2hj3rZwlu1WDx0q_Q_bcu9tzfdIQq6j"
-                       target="_blank"
-                       class="inline-flex items-center px-5 py-2.5 rounded-full border border-purple-500/40 text-purple-400 hover:bg-purple-500 hover:text-white transition-all">
-
-                        <i class="fas fa-folder-open mr-2"></i>
-
-                        Training Details
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= EDUCATION ================= -->
-
-<section id="education"
-         class="py-24 bg-brand-dark relative z-10 border-t border-white/5">
-
-```
-<div class="max-w-7xl mx-auto px-6 lg:px-8 reveal">
-
-    <div class="text-center mb-16">
-
-        <h2 class="text-sm font-bold text-blue-500 tracking-widest uppercase mb-2">
-            Academics
-        </h2>
-
-        <h3 class="text-3xl md:text-4xl font-bold text-white">
-            Education & Certifications
-        </h3>
-
-    </div>
-
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-
-        <!-- EDUCATION -->
-
-        <div class="glass-card p-8 rounded-2xl">
-
-            <div class="flex items-center gap-4 mb-8">
-
-                <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl">
-
-                    <i class="fas fa-graduation-cap"></i>
-
-                </div>
-
-                <h4 class="text-2xl font-bold text-white">
-                    Education
-                </h4>
-
-            </div>
-
-
-            <div class="space-y-7">
-
-
-                <div class="border-b border-white/5 pb-6">
-
-                    <h5 class="text-lg font-bold text-white">
-                        Nitte Meenakshi Institute of Technology
-                    </h5>
-
-                    <p class="text-blue-400 text-sm mt-1">
-                        B.E. in Information Science & Engineering
-                    </p>
-
-                    <p class="text-gray-500 text-xs mt-2">
-                        Bengaluru, Karnataka • Sept 2023 – Aug 2027
-                    </p>
-
-                    <p class="text-gray-400 text-sm mt-3">
-                        CGPA: 6.65 / 10.0
-                    </p>
-
-                </div>
-
-
-                <div class="border-b border-white/5 pb-6">
-
-                    <h5 class="text-lg font-bold text-white">
-                        Devika PU Science College
-                    </h5>
-
-                    <p class="text-blue-400 text-sm mt-1">
-                        XII – Science (PCMB)
-                    </p>
-
-                    <p class="text-gray-500 text-xs mt-2">
-                        Ranebennur, Karnataka • June 2021 – March 2023
-                    </p>
-
-                    <p class="text-gray-400 text-sm mt-3">
-                        Percentage: 77.8%
-                    </p>
-
-                </div>
-
-
-                <div>
-
-                    <h5 class="text-lg font-bold text-white">
-                        Amrutha Varshini Vidyalaya
-                    </h5>
-
-                    <p class="text-blue-400 text-sm mt-1">
-                        X
-                    </p>
-
-                    <p class="text-gray-500 text-xs mt-2">
-                        Ranibennuru, Karnataka
-                    </p>
-
-                    <p class="text-gray-400 text-sm mt-3">
-                        Percentage: 81.9%
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CERTIFICATIONS -->
-
-        <div class="glass-card p-8 rounded-2xl">
-
-            <div class="flex items-center gap-4 mb-8">
-
-                <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 text-xl">
-
-                    <i class="fas fa-certificate"></i>
-
-                </div>
-
-                <h4 class="text-2xl font-bold text-white">
-                    Certifications
-                </h4>
-
-            </div>
-
-
-            <div class="space-y-6">
-
-
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 text-purple-400">
-
-                        <i class="fas fa-check-circle"></i>
-
-                    </div>
-
-                    <div>
-
-                        <h5 class="text-white font-medium">
-                            Google Cloud Engineering
-                        </h5>
-
-                        <p class="text-gray-500 text-xs">
-                            Google Cloud • 2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 text-purple-400">
-
-                        <i class="fas fa-check-circle"></i>
-
-                    </div>
-
-                    <div>
-
-                        <h5 class="text-white font-medium">
-                            Google UX Design Professional Certificate
-                        </h5>
-
-                        <p class="text-gray-500 text-xs">
-                            Google, Coursera • 2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 text-purple-400">
-
-                        <i class="fas fa-check-circle"></i>
-
-                    </div>
-
-                    <div>
-
-                        <h5 class="text-white font-medium">
-                            Introduction to Software Engineering
-                        </h5>
-
-                        <p class="text-gray-500 text-xs">
-                            Coursera • 2025
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 text-purple-400">
-
-                        <i class="fas fa-check-circle"></i>
-
-                    </div>
-
-                    <div>
-
-                        <h5 class="text-white font-medium">
-                            AWS Academy Graduate – Cloud Foundations
-                        </h5>
-
-                        <p class="text-gray-500 text-xs">
-                            AWS Academy • 2025
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 text-purple-400">
-
-                        <i class="fas fa-check-circle"></i>
-
-                    </div>
-
-                    <div>
-
-                        <h5 class="text-white font-medium">
-                            Networking Basics
-                        </h5>
-
-                        <p class="text-gray-500 text-xs">
-                            Cisco • 2025
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= RESUME ================= -->
-
-<section id="resume"
-         class="py-20 relative z-10">
-
-```
-<div class="max-w-4xl mx-auto px-6 lg:px-8">
-
-    <div class="glass-card p-10 md:p-16 rounded-3xl text-center relative overflow-hidden reveal">
-
-        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl -translate-y-1/2 translate-x-1/3">
-        </div>
-
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full filter blur-3xl translate-y-1/2 -translate-x-1/3">
-        </div>
-
-
-        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4 relative z-10">
-
-            Want to know more about me?
-
-        </h3>
-
-
-        <p class="text-gray-400 mb-8 max-w-xl mx-auto relative z-10">
-
-            Download my resume for a detailed overview of my education,
-            technical skills, training, certifications, and projects.
+            I am an Information Science & Engineering student
+            interested in software development, machine learning,
+            data analysis, and building practical technology solutions.
 
         </p>
 
 
-        <!-- Replace resume.pdf with your actual resume filename -->
+        <!-- BUTTONS -->
 
-        <a href="resume.pdf"
-           download
-           class="inline-flex items-center px-8 py-4 rounded-full btn-gradient text-white font-bold shadow-xl shadow-purple-500/20 relative z-10">
+        <div
+            class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10"
+        >
 
-            <i class="fas fa-file-pdf mr-3 text-xl"></i>
+            <a
+                href="#projects"
+                class="w-full sm:w-auto px-8 py-3.5 rounded-full btn-gradient text-white font-semibold"
+            >
 
-            Download Resume
+                <i class="fas fa-code mr-2"></i>
 
-        </a>
+                View My Projects
+
+            </a>
+
+
+            <a
+                href="#contact"
+                class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/15 text-white hover:bg-white/10 transition"
+            >
+
+                <i class="fas fa-paper-plane mr-2"></i>
+
+                Contact Me
+
+            </a>
+
+        </div>
+
+
+        <!-- SOCIAL -->
+
+        <div
+            class="flex justify-center gap-6"
+        >
+
+            <a
+                href="https://github.com/Tarunrn132"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white text-2xl transition transform hover:-translate-y-1"
+                aria-label="GitHub"
+            >
+
+                <i class="fab fa-github"></i>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/tarun-r-n-a7801a385"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-blue-400 text-2xl transition transform hover:-translate-y-1"
+                aria-label="LinkedIn"
+            >
+
+                <i class="fab fa-linkedin"></i>
+
+            </a>
+
+        </div>
 
     </div>
-
-</div>
-```
 
 </section>
 
-<!-- ================= CONTACT ================= -->
 
-<section id="contact"
-         class="py-24 bg-[#0a0e17] relative z-10 border-t border-white/5">
 
-```
-<div class="max-w-7xl mx-auto px-6 lg:px-8 reveal">
+<!-- ============================================================
+     ABOUT
+============================================================= -->
 
-    <div class="text-center mb-16">
+<section
+    id="about"
+    class="py-24 bg-brand-dark relative z-10 border-t border-white/5"
+>
 
-        <h2 class="text-sm font-bold text-purple-500 tracking-widest uppercase mb-2">
-            Get In Touch
-        </h2>
+    <div
+        class="max-w-6xl mx-auto px-6 lg:px-8 reveal"
+    >
 
-        <h3 class="text-3xl md:text-4xl font-bold text-white">
-            Let's Work Together
-        </h3>
+        <div
+            class="flex flex-col md:flex-row items-center gap-16"
+        >
+
+
+            <!-- PROFILE PHOTO -->
+
+            <div
+                class="w-full md:w-5/12 flex justify-center"
+            >
+
+                <div
+                    class="relative"
+                >
+
+                    <div
+                        class="absolute -inset-5 bg-blue-600/10 rounded-full blur-3xl"
+                    ></div>
+
+
+                    <div
+                        class="relative w-72 h-72 md:w-80 md:h-80 profile-ring animate-float"
+                    >
+
+                        <div
+                            class="w-full h-full rounded-full bg-[#111827] p-1"
+                        >
+
+                            <img
+                                src="images/Photo.jpeg"
+                                alt="Tarun R Naik"
+                                class="profile-image"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div
+                        class="absolute -bottom-3 -right-3 glass px-5 py-3 rounded-full flex items-center gap-2 shadow-xl"
+                    >
+
+                        <i
+                            class="fas fa-location-dot text-blue-400"
+                        ></i>
+
+                        <span
+                            class="text-sm text-gray-300"
+                        >
+                            Bengaluru, India
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT TEXT -->
+
+            <div
+                class="w-full md:w-7/12"
+            >
+
+                <p
+                    class="text-sm font-semibold text-blue-400 tracking-[0.2em] uppercase mb-3"
+                >
+                    About Me
+                </p>
+
+
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-white leading-tight mb-6"
+                >
+
+                    Building practical solutions with
+
+                    <span class="text-gradient">
+                        code & data.
+                    </span>
+
+                </h2>
+
+
+                <p
+                    class="text-gray-400 leading-relaxed mb-5"
+                >
+
+                    I am Tarun R Naik, an Information Science &
+                    Engineering student at Nitte Meenakshi Institute
+                    of Technology, Bengaluru.
+
+                </p>
+
+
+                <p
+                    class="text-gray-400 leading-relaxed mb-7"
+                >
+
+                    My interests include software development,
+                    machine learning, data analysis, backend systems,
+                    and building technology solutions for real-world
+                    applications.
+
+                </p>
+
+
+                <!-- INTEREST CARDS -->
+
+                <div
+                    class="grid grid-cols-2 gap-5"
+                >
+
+                    <div
+                        class="glass-card rounded-xl p-5"
+                    >
+
+                        <div
+                            class="text-xl font-bold text-white mb-1"
+                        >
+                            Software
+                        </div>
+
+                        <p
+                            class="text-sm text-gray-500"
+                        >
+                            Development
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="glass-card rounded-xl p-5"
+                    >
+
+                        <div
+                            class="text-xl font-bold text-white mb-1"
+                        >
+                            Machine Learning
+                        </div>
+
+                        <p
+                            class="text-sm text-gray-500"
+                        >
+                            Data & Prediction
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-
-    <div class="flex flex-col lg:flex-row gap-12 max-w-5xl mx-auto">
-
-
-        <!-- CONTACT DETAILS -->
-
-        <div class="w-full lg:w-1/3 space-y-6">
+</section>
 
 
-            <!-- EMAIL -->
 
-            <div class="glass-card p-6 rounded-xl flex items-start gap-4">
+<!-- ============================================================
+     SKILLS
+============================================================= -->
 
-                <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl flex-shrink-0">
+<section
+    id="skills"
+    class="py-24 bg-[#0A0E17] border-t border-white/5"
+>
 
-                    <i class="fas fa-envelope"></i>
+    <div
+        class="max-w-6xl mx-auto px-6 lg:px-8 reveal"
+    >
+
+        <div
+            class="text-center mb-14"
+        >
+
+            <p
+                class="text-sm font-semibold text-purple-400 tracking-[0.2em] uppercase mb-3"
+            >
+                My Toolkit
+            </p>
+
+
+            <h2
+                class="text-3xl md:text-4xl font-bold text-white"
+            >
+                Technical Skills
+            </h2>
+
+
+            <p
+                class="max-w-2xl mx-auto mt-4 text-gray-500"
+            >
+
+                Technologies and tools I use for software development,
+                data analysis, and machine learning.
+
+            </p>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
+        >
+
+
+            <!-- C -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-code text-4xl text-blue-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    C
+                </p>
+
+            </div>
+
+
+            <!-- Python -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fab fa-python text-4xl text-yellow-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    Python
+                </p>
+
+            </div>
+
+
+            <!-- Java -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fab fa-java text-4xl text-red-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    Java
+                </p>
+
+            </div>
+
+
+            <!-- MySQL -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-database text-4xl text-blue-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    MySQL
+                </p>
+
+            </div>
+
+
+            <!-- Pandas -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-table text-4xl text-purple-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    Pandas
+                </p>
+
+            </div>
+
+
+            <!-- NumPy -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-calculator text-4xl text-cyan-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    NumPy
+                </p>
+
+            </div>
+
+
+            <!-- Scikit -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-brain text-4xl text-orange-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    Scikit-learn
+                </p>
+
+            </div>
+
+
+            <!-- Machine Learning -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-robot text-4xl text-purple-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    Machine Learning
+                </p>
+
+            </div>
+
+
+            <!-- HTML -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fab fa-html5 text-4xl text-orange-500 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    HTML
+                </p>
+
+            </div>
+
+
+            <!-- CSS -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fab fa-css3-alt text-4xl text-blue-500 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    CSS
+                </p>
+
+            </div>
+
+
+            <!-- Git -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fab fa-git-alt text-4xl text-orange-500 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    Git
+                </p>
+
+            </div>
+
+
+            <!-- GitHub -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fab fa-github text-4xl text-white mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    GitHub
+                </p>
+
+            </div>
+
+
+            <!-- VS Code -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-laptop-code text-4xl text-blue-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    VS Code
+                </p>
+
+            </div>
+
+
+            <!-- Time Series -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-chart-line text-4xl text-green-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    Time Series Forecasting
+                </p>
+
+            </div>
+
+
+            <!-- Data Analysis -->
+
+            <div
+                class="skill-card glass-card rounded-xl p-6 text-center"
+            >
+
+                <i
+                    class="fas fa-chart-column text-4xl text-indigo-400 mb-4"
+                ></i>
+
+                <p class="font-medium text-white">
+                    Data Analysis
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     PROJECTS
+============================================================= -->
+
+<section
+    id="projects"
+    class="py-24 bg-brand-dark border-t border-white/5"
+>
+
+    <div
+        class="max-w-6xl mx-auto px-6 lg:px-8 reveal"
+    >
+
+        <div
+            class="text-center mb-14"
+        >
+
+            <p
+                class="text-sm font-semibold text-blue-400 tracking-[0.2em] uppercase mb-3"
+            >
+                Portfolio
+            </p>
+
+
+            <h2
+                class="text-3xl md:text-4xl font-bold text-white"
+            >
+                Featured Projects
+            </h2>
+
+
+            <p
+                class="max-w-2xl mx-auto mt-4 text-gray-500"
+            >
+
+                Selected work involving machine learning,
+                AI-powered applications, railway systems,
+                travel technology, data, and full-stack software development.
+
+            </p>
+
+        </div>
+
+
+
+        <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-8"
+        >
+
+
+            <!-- ==================================================
+                 TRAFFIC PROJECT
+            =================================================== -->
+
+            <article
+                class="project-card glass-card rounded-2xl overflow-hidden flex flex-col"
+            >
+
+                <!-- VISUAL -->
+
+                <div
+                    class="h-60 relative overflow-hidden bg-[#101827]"
+                >
+
+                    <div
+                        class="project-visual absolute inset-0 flex items-center justify-center"
+                    >
+
+                        <div
+                            class="absolute inset-0 opacity-20"
+                            style="
+                                background-image:
+                                linear-gradient(
+                                    rgba(59,130,246,.4) 1px,
+                                    transparent 1px
+                                ),
+                                linear-gradient(
+                                    90deg,
+                                    rgba(59,130,246,.4) 1px,
+                                    transparent 1px
+                                );
+                                background-size:35px 35px;
+                            "
+                        ></div>
+
+
+                        <div
+                            class="absolute w-full h-20 bg-gray-800 rotate-12"
+                        ></div>
+
+
+                        <div
+                            class="absolute w-full h-1 bg-yellow-400/70 rotate-12"
+                        ></div>
+
+
+                        <div
+                            class="absolute top-10 left-16 w-5 h-5 bg-blue-400 rounded-full shadow-[0_0_20px_#60A5FA]"
+                        ></div>
+
+
+                        <div
+                            class="absolute top-28 left-44 w-5 h-5 bg-purple-400 rounded-full shadow-[0_0_20px_#A78BFA]"
+                        ></div>
+
+
+                        <div
+                            class="absolute bottom-10 right-24 w-5 h-5 bg-green-400 rounded-full shadow-[0_0_20px_#4ADE80]"
+                        ></div>
+
+
+                        <div
+                            class="absolute top-20 right-16 w-5 h-5 bg-blue-400 rounded-full shadow-[0_0_20px_#60A5FA]"
+                        ></div>
+
+
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-2xl bg-blue-500/10 border border-blue-400/20 backdrop-blur-md flex items-center justify-center"
+                        >
+
+                            <i
+                                class="fas fa-network-wired text-4xl text-blue-400"
+                            ></i>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <div>
 
-                    <h4 class="text-white font-medium mb-1">
-                        Email
-                    </h4>
+                <!-- CONTENT -->
 
-                    <a href="mailto:tarunrn13@gmail.com"
-                       class="text-gray-400 hover:text-blue-400 transition-colors text-sm break-all">
+                <div
+                    class="p-7 flex-grow flex flex-col"
+                >
 
-                        tarunrn13@gmail.com
+                    <div
+                        class="flex items-start justify-between gap-4 mb-3"
+                    >
+
+                        <h3
+                            class="text-xl font-bold text-white"
+                        >
+                            Traffic Flow Prediction Using GNN
+                        </h3>
+
+
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 whitespace-nowrap"
+                        >
+                            GNN
+                        </span>
+
+                    </div>
+
+
+                    <p
+                        class="text-gray-400 text-sm leading-relaxed mb-5"
+                    >
+
+                        Developed a Graph Neural Network-based traffic
+                        prediction system using Bengaluru traffic data
+                        to forecast road congestion and traffic flow.
+
+                    </p>
+
+
+                    <ul
+                        class="text-gray-400 text-sm space-y-2 mb-6"
+                    >
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-blue-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Built an interactive Streamlit dashboard
+                                with traffic visualization and route analysis.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-blue-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Integrated Leaflet and TomTom APIs for
+                                traffic insights and route planning.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-blue-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Evaluated prediction performance using
+                                MAE, RMSE, and MAPE.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-blue-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Integrated a FastAPI backend for prediction
+                                and route analysis services.
+                            </span>
+
+                        </li>
+
+                    </ul>
+
+
+                    <div
+                        class="flex flex-wrap gap-2 mb-6 mt-auto"
+                    >
+
+                        <span class="tech-tag">
+                            Python
+                        </span>
+
+                        <span class="tech-tag">
+                            PyTorch
+                        </span>
+
+                        <span class="tech-tag">
+                            Streamlit
+                        </span>
+
+                        <span class="tech-tag">
+                            FastAPI
+                        </span>
+
+                        <span class="tech-tag">
+                            Leaflet
+                        </span>
+
+                        <span class="tech-tag">
+                            TomTom API
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/Tarunrn132"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-blue-400 transition"
+                    >
+
+                        <i class="fab fa-github"></i>
+
+                        View on GitHub
+
+                        <i class="fas fa-arrow-right text-xs"></i>
 
                     </a>
 
                 </div>
 
-            </div>
+            </article>
 
 
-            <!-- PHONE -->
 
-            <div class="glass-card p-6 rounded-xl flex items-start gap-4">
+            <!-- ==================================================
+                 RAILWAY PROJECT
+            =================================================== -->
 
-                <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 text-xl flex-shrink-0">
+            <article
+                class="project-card glass-card rounded-2xl overflow-hidden flex flex-col"
+            >
 
-                    <i class="fas fa-phone"></i>
+                <!-- RAILWAY VISUAL -->
+
+                <div
+                    class="h-60 relative overflow-hidden bg-[#111827]"
+                >
+
+                    <div
+                        class="project-visual absolute inset-0"
+                    >
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950"
+                        ></div>
+
+
+                        <!-- TRACKS -->
+
+                        <div
+                            class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-20"
+                        >
+
+                            <div
+                                class="absolute left-0 right-0 top-5 h-1 bg-gray-500/70"
+                            ></div>
+
+                            <div
+                                class="absolute left-0 right-0 bottom-5 h-1 bg-gray-500/70"
+                            ></div>
+
+
+                            <div
+                                class="absolute inset-0 flex justify-around items-center opacity-50"
+                            >
+
+                                <span class="w-2 h-24 bg-gray-600"></span>
+                                <span class="w-2 h-24 bg-gray-600"></span>
+                                <span class="w-2 h-24 bg-gray-600"></span>
+                                <span class="w-2 h-24 bg-gray-600"></span>
+                                <span class="w-2 h-24 bg-gray-600"></span>
+                                <span class="w-2 h-24 bg-gray-600"></span>
+                                <span class="w-2 h-24 bg-gray-600"></span>
+                                <span class="w-2 h-24 bg-gray-600"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRAIN -->
+
+                        <div
+                            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 shadow-[0_0_35px_rgba(59,130,246,.35)] border border-blue-300/30 flex items-center justify-center"
+                        >
+
+                            <div class="flex gap-2">
+
+                                <span
+                                    class="w-7 h-5 rounded bg-white/80"
+                                ></span>
+
+                                <span
+                                    class="w-7 h-5 rounded bg-white/80"
+                                ></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRAIN ICON -->
+
+                        <div
+                            class="absolute top-7 right-8 w-12 h-12 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center"
+                        >
+
+                            <i
+                                class="fas fa-train text-xl text-purple-400"
+                            ></i>
+
+                        </div>
+
+
+                        <!-- TICKET ICON -->
+
+                        <div
+                            class="absolute bottom-7 left-8 w-12 h-12 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center"
+                        >
+
+                            <i
+                                class="fas fa-ticket text-xl text-blue-400"
+                            ></i>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <div>
 
-                    <h4 class="text-white font-medium mb-1">
-                        Phone
-                    </h4>
+                <!-- CONTENT -->
 
-                    <a href="tel:+917483814697"
-                       class="text-gray-400 hover:text-green-400 transition-colors text-sm">
+                <div
+                    class="p-7 flex-grow flex flex-col"
+                >
 
-                        +91 74838 14697
+                    <div
+                        class="flex items-start justify-between gap-4 mb-3"
+                    >
+
+                        <h3
+                            class="text-xl font-bold text-white"
+                        >
+                            Railway Reservation System
+                        </h3>
+
+
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 whitespace-nowrap"
+                        >
+                            Java
+                        </span>
+
+                    </div>
+
+
+                    <p
+                        class="text-gray-400 text-sm leading-relaxed mb-5"
+                    >
+
+                        Developed a Java-based railway reservation
+                        application supporting train and station search,
+                        schedule filtering, passenger management,
+                        fare calculation, seat allocation, booking,
+                        and cancellation.
+
+                    </p>
+
+
+                    <ul
+                        class="text-gray-400 text-sm space-y-2 mb-6"
+                    >
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-purple-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Implemented railway station and train
+                                management using Indian Railway datasets.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-purple-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Implemented JWT authentication,
+                                BCrypt password hashing, and
+                                role-based access control.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-purple-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Integrated Razorpay payment processing
+                                with booking status management.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-purple-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Designed the application interface around
+                                railway reservation workflows.
+                            </span>
+
+                        </li>
+
+                    </ul>
+
+
+                    <div
+                        class="flex flex-wrap gap-2 mb-6 mt-auto"
+                    >
+
+                        <span class="tech-tag">
+                            Java 21
+                        </span>
+
+                        <span class="tech-tag">
+                            Spring Boot
+                        </span>
+
+                        <span class="tech-tag">
+                            PostgreSQL
+                        </span>
+
+                        <span class="tech-tag">
+                            JPA / Hibernate
+                        </span>
+
+                        <span class="tech-tag">
+                            HTML
+                        </span>
+
+                        <span class="tech-tag">
+                            CSS
+                        </span>
+
+                        <span class="tech-tag">
+                            JavaScript
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/Tarunrn132/Indian-Railway-Reservation-and-Ticketing-Platform"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-purple-400 transition"
+                    >
+
+                        <i class="fab fa-github"></i>
+
+                        View on GitHub
+
+                        <i class="fas fa-arrow-right text-xs"></i>
 
                     </a>
 
                 </div>
 
-            </div>
+            </article>
 
 
-            <!-- LOCATION -->
 
-            <div class="glass-card p-6 rounded-xl flex items-start gap-4">
+            <!-- ==================================================
+                 KARNATAKA TRAVEL DIARIES PROJECT
+            =================================================== -->
 
-                <div class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl flex-shrink-0">
+            <article
+                class="project-card glass-card rounded-2xl overflow-hidden flex flex-col"
+            >
 
-                    <i class="fas fa-map-marker-alt"></i>
+                <!-- VISUAL -->
+
+                <div
+                    class="h-60 relative overflow-hidden bg-[#0D1525]"
+                >
+
+                    <div
+                        class="project-visual absolute inset-0 flex items-center justify-center"
+                    >
+
+                        <!-- BACKGROUND GRADIENT -->
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-900 to-slate-950"
+                        ></div>
+
+
+                        <!-- MAP COORDINATE GRID -->
+
+                        <div
+                            class="absolute inset-0 opacity-20"
+                            style="
+                                background-image:
+                                linear-gradient(
+                                    rgba(56,189,248,.35) 1px,
+                                    transparent 1px
+                                ),
+                                linear-gradient(
+                                    90deg,
+                                    rgba(56,189,248,.35) 1px,
+                                    transparent 1px
+                                );
+                                background-size:32px 32px;
+                            "
+                        ></div>
+
+
+                        <!-- ROUTE PATHS -->
+
+                        <svg
+                            class="absolute inset-0 w-full h-full pointer-events-none"
+                            viewBox="0 0 400 240"
+                            preserveAspectRatio="none"
+                        >
+
+                            <defs>
+
+                                <linearGradient
+                                    id="routeGrad"
+                                    x1="0%"
+                                    y1="0%"
+                                    x2="100%"
+                                    y2="100%"
+                                >
+
+                                    <stop
+                                        offset="0%"
+                                        stop-color="#38BDF8"
+                                        stop-opacity="0.8"
+                                    />
+
+                                    <stop
+                                        offset="50%"
+                                        stop-color="#818CF8"
+                                        stop-opacity="0.8"
+                                    />
+
+                                    <stop
+                                        offset="100%"
+                                        stop-color="#34D399"
+                                        stop-opacity="0.8"
+                                    />
+
+                                </linearGradient>
+
+                            </defs>
+
+
+                            <path
+                                d="M 60,65 Q 160,35 200,120 T 340,175"
+                                fill="none"
+                                stroke="url(#routeGrad)"
+                                stroke-width="2.5"
+                                stroke-dasharray="6 6"
+                                stroke-linecap="round"
+                                class="opacity-70"
+                            />
+
+
+                            <path
+                                d="M 200,120 Q 270,75 330,65"
+                                fill="none"
+                                stroke="#A78BFA"
+                                stroke-width="1.5"
+                                stroke-dasharray="4 4"
+                                stroke-linecap="round"
+                                class="opacity-50"
+                            />
+
+                        </svg>
+
+
+                        <!-- DESTINATION PIN 1 (HAMPI) -->
+
+                        <div
+                            class="absolute top-6 right-8 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-400/25 backdrop-blur-sm shadow-[0_0_15px_rgba(56,189,248,0.2)]"
+                        >
+
+                            <i
+                                class="fas fa-map-pin text-[10px] text-blue-400"
+                            ></i>
+
+                            <span
+                                class="text-[11px] font-medium text-blue-200"
+                            >
+                                Hampi
+                            </span>
+
+                        </div>
+
+
+                        <!-- DESTINATION PIN 2 (GOKARNA) -->
+
+                        <div
+                            class="absolute top-6 left-8 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/25 backdrop-blur-sm shadow-[0_0_15px_rgba(34,211,238,0.2)]"
+                        >
+
+                            <i
+                                class="fas fa-location-dot text-[10px] text-cyan-400"
+                            ></i>
+
+                            <span
+                                class="text-[11px] font-medium text-cyan-200"
+                            >
+                                Gokarna
+                            </span>
+
+                        </div>
+
+
+                        <!-- DESTINATION PIN 3 (COORG) -->
+
+                        <div
+                            class="absolute bottom-6 left-8 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/25 backdrop-blur-sm shadow-[0_0_15px_rgba(52,211,153,0.2)]"
+                        >
+
+                            <i
+                                class="fas fa-mountain text-[10px] text-emerald-400"
+                            ></i>
+
+                            <span
+                                class="text-[11px] font-medium text-emerald-200"
+                            >
+                                Coorg
+                            </span>
+
+                        </div>
+
+
+                        <!-- DESTINATION PIN 4 (MYSURU) -->
+
+                        <div
+                            class="absolute bottom-6 right-8 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-400/25 backdrop-blur-sm shadow-[0_0_15px_rgba(168,85,247,0.2)]"
+                        >
+
+                            <i
+                                class="fas fa-landmark text-[10px] text-purple-400"
+                            ></i>
+
+                            <span
+                                class="text-[11px] font-medium text-purple-200"
+                            >
+                                Mysuru
+                            </span>
+
+                        </div>
+
+
+                        <!-- GLOWING ROUTE NODES -->
+
+                        <div
+                            class="absolute top-16 left-28 w-3.5 h-3.5 bg-cyan-400 rounded-full shadow-[0_0_16px_#22D3EE]"
+                        ></div>
+
+
+                        <div
+                            class="absolute bottom-16 right-28 w-3.5 h-3.5 bg-purple-400 rounded-full shadow-[0_0_16px_#A78BFA]"
+                        ></div>
+
+
+                        <div
+                            class="absolute top-24 right-20 w-3 h-3 bg-emerald-400 rounded-full shadow-[0_0_14px_#34D399]"
+                        ></div>
+
+
+                        <div
+                            class="absolute bottom-20 left-24 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_14px_#60A5FA]"
+                        ></div>
+
+
+                        <!-- CENTERPIECE ICON (MAP & AI COPILOT) -->
+
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-2xl bg-cyan-500/10 border border-cyan-400/25 backdrop-blur-md shadow-[0_0_35px_rgba(6,182,212,0.25)] flex items-center justify-center"
+                        >
+
+                            <i
+                                class="fas fa-map-location-dot text-4xl text-cyan-400"
+                            ></i>
+
+
+                            <span
+                                class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-indigo-600/90 border border-indigo-400/40 flex items-center justify-center text-[10px] text-amber-300 shadow"
+                            >
+
+                                <i class="fas fa-brain text-[10px]"></i>
+
+                            </span>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
+
+                <!-- CONTENT -->
+
+                <div
+                    class="p-7 flex-grow flex flex-col"
+                >
+
+                    <div
+                        class="flex items-start justify-between gap-4 mb-3"
+                    >
+
+                        <h3
+                            class="text-xl font-bold text-white"
+                        >
+                            Karnataka Travel Diaries
+                        </h3>
+
+
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 whitespace-nowrap"
+                        >
+                            AI / Full-Stack
+                        </span>
+
+                    </div>
+
+
+                    <p
+                        class="text-gray-400 text-sm leading-relaxed mb-5"
+                    >
+
+                        Developed a full-stack AI-powered travel platform
+                        focused on exploring Karnataka, providing destination
+                        discovery, personalized trip planning, interactive maps,
+                        travel information, weather insights, and travel diary
+                        functionality.
+
+                    </p>
+
+
+                    <ul
+                        class="text-gray-400 text-sm space-y-2 mb-6"
+                    >
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-cyan-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Built a full-stack Karnataka travel platform with
+                                destination discovery, travel information,
+                                personalized trip planning, user authentication,
+                                travel diaries, and responsive web interfaces.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-cyan-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Implemented an AI-powered travel assistant and
+                                itinerary planner capable of understanding
+                                natural-language travel requests and generating
+                                personalized Karnataka travel plans based on trip
+                                duration, destinations, nearby attractions,
+                                temples, distance, and travel requirements.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-cyan-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Integrated interactive mapping and location services
+                                using Leaflet/OpenStreetMap, browser geolocation,
+                                Google Maps navigation, route planning, and
+                                location-based travel features to help users explore
+                                destinations and plan journeys.
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-2">
+
+                            <i
+                                class="fas fa-check text-cyan-400 mt-1"
+                            ></i>
+
+                            <span>
+                                Developed supporting travel intelligence features
+                                including weather information, destination
+                                recommendations, distance calculations, budget
+                                estimation, Karnataka destination/temple data, and
+                                structured travel knowledge for AI-assisted
+                                recommendations.
+                            </span>
+
+                        </li>
+
+                    </ul>
+
+
+                    <div
+                        class="flex flex-wrap gap-2 mb-6 mt-auto"
+                    >
+
+                        <span class="tech-tag">
+                            HTML5
+                        </span>
+
+                        <span class="tech-tag">
+                            CSS3
+                        </span>
+
+                        <span class="tech-tag">
+                            JavaScript
+                        </span>
+
+                        <span class="tech-tag">
+                            Prisma
+                        </span>
+
+                        <span class="tech-tag">
+                            SQLite
+                        </span>
+
+                        <span class="tech-tag">
+                            Firebase
+                        </span>
+
+                        <span class="tech-tag">
+                            Leaflet
+                        </span>
+
+                        <span class="tech-tag">
+                            OpenStreetMap
+                        </span>
+
+                        <span class="tech-tag">
+                            AI / RAG
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/Tarunrn132/Karnataka-Travel-Diaries"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-cyan-400 transition"
+                    >
+
+                        <i class="fab fa-github"></i>
+
+                        View on GitHub
+
+                        <i class="fas fa-arrow-right text-xs"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     TRAINING & COURSE
+============================================================= -->
+
+<section
+    id="training"
+    class="py-24 bg-[#0A0E17] border-t border-white/5"
+>
+
+    <div
+        class="max-w-4xl mx-auto px-6 lg:px-8 reveal"
+    >
+
+        <!-- SECTION TITLE -->
+
+        <div
+            class="text-center mb-14"
+        >
+
+            <p
+                class="text-sm font-semibold text-purple-400 tracking-[0.2em] uppercase mb-3"
+            >
+                Professional Learning
+            </p>
+
+
+            <h2
+                class="text-3xl md:text-4xl font-bold text-white"
+            >
+                Training & Course
+            </h2>
+
+
+            <p
+                class="max-w-2xl mx-auto mt-4 text-gray-500"
+            >
+
+                Practical training experience and applied learning
+                in data science and machine learning.
+
+            </p>
+
+        </div>
+
+
+        <!-- TIMELINE -->
+
+        <div
+            class="relative"
+        >
+
+            <!-- LINE -->
+
+            <div
+                class="absolute left-3 md:left-5 top-0 bottom-0 w-px timeline-line"
+            ></div>
+
+
+            <!-- TRAINING -->
+
+            <div
+                class="relative pl-12 md:pl-16"
+            >
+
+                <!-- DOT -->
+
+                <div
+                    class="absolute left-0 md:left-2 top-1 w-7 h-7 rounded-full bg-purple-500/20 border border-purple-400/50 flex items-center justify-center"
+                >
+
+                    <div
+                        class="w-2.5 h-2.5 bg-purple-400 rounded-full"
+                    ></div>
+
+                </div>
+
+
+                <!-- CARD -->
+
+                <div
+                    class="glass-card rounded-2xl p-7"
+                >
+
+                    <!-- HEADER -->
+
+                    <div
+                        class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6"
+                    >
+
+                        <div>
+
+                            <h3
+                                class="text-2xl font-bold text-white"
+                            >
+                                Data Science Training
+                            </h3>
+
+
+                            <p
+                                class="text-blue-400 font-medium mt-1"
+                            >
+                                Prinston Smart Engineers
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="text-sm text-gray-500"
+                        >
+                            July 2025 – Sept 2025
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div
+                        class="flex items-center gap-2 text-sm text-gray-500 mb-7"
+                    >
+
+                        <i
+                            class="fas fa-location-dot text-purple-400"
+                        ></i>
+
+                        Bangalore, Karnataka
+
+                    </div>
+
+
+                    <!-- TRAINING DETAILS -->
+
+                    <ul
+                        class="space-y-4 text-gray-400 text-sm leading-relaxed"
+                    >
+
+                        <li class="flex gap-3">
+
+                            <i
+                                class="fas fa-circle-check text-purple-400 mt-1"
+                            ></i>
+
+                            <span>
+
+                                Developed a Machine Learning-based
+                                Vande Bharat Express occupancy forecasting
+                                system using Random Forest, KNN, SVM,
+                                and Decision Tree algorithms.
+
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-3">
+
+                            <i
+                                class="fas fa-circle-check text-purple-400 mt-1"
+                            ></i>
+
+                            <span>
+
+                                Performed data preprocessing,
+                                exploratory data analysis,
+                                feature engineering, normalization,
+                                and categorical data transformation
+                                for railway occupancy prediction.
+
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-3">
+
+                            <i
+                                class="fas fa-circle-check text-purple-400 mt-1"
+                            ></i>
+
+                            <span>
+
+                                Trained and evaluated multiple
+                                machine learning models using
+                                Accuracy, Precision, Recall,
+                                and F1-score.
+
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-3">
+
+                            <i
+                                class="fas fa-circle-check text-purple-400 mt-1"
+                            ></i>
+
+                            <span>
+
+                                Analyzed route-wise, temporal,
+                                and occupancy patterns using
+                                visualization and correlation
+                                analysis to support demand forecasting,
+                                capacity planning, resource allocation,
+                                and railway operations.
+
+                            </span>
+
+                        </li>
+
+                    </ul>
+
+
+                    <!-- TECHNOLOGIES -->
+
+                    <div
+                        class="flex flex-wrap gap-2 mt-7"
+                    >
+
+                        <span class="tech-tag">
+                            Python
+                        </span>
+
+                        <span class="tech-tag">
+                            Machine Learning
+                        </span>
+
+                        <span class="tech-tag">
+                            Random Forest
+                        </span>
+
+                        <span class="tech-tag">
+                            KNN
+                        </span>
+
+                        <span class="tech-tag">
+                            SVM
+                        </span>
+
+                        <span class="tech-tag">
+                            Decision Tree
+                        </span>
+
+                        <span class="tech-tag">
+                            Data Analysis
+                        </span>
+
+                    </div>
+
+
+                    <!-- TRAINING DRIVE -->
+
+                    <div
+                        class="mt-7 pt-6 border-t border-white/5"
+                    >
+
+                        <a
+                            href="https://drive.google.com/drive/u/1/folders/1G2hj3rZwlu1WDx0q_Q_bcu9tzfdIQq6j"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition"
+                        >
+
+                            <i
+                                class="fas fa-folder-open"
+                            ></i>
+
+                            Training Documentation
+
+                            <i
+                                class="fas fa-arrow-right text-xs"
+                            ></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     EDUCATION
+============================================================= -->
+
+<section
+    id="education"
+    class="py-24 bg-brand-dark border-t border-white/5"
+>
+
+    <div
+        class="max-w-6xl mx-auto px-6 lg:px-8 reveal"
+    >
+
+        <div
+            class="text-center mb-14"
+        >
+
+            <p
+                class="text-sm font-semibold text-blue-400 tracking-[0.2em] uppercase mb-3"
+            >
+                Academics
+            </p>
+
+
+            <h2
+                class="text-3xl md:text-4xl font-bold text-white"
+            >
+                Education
+            </h2>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+
+
+            <!-- NMIT -->
+
+            <div
+                class="glass-card rounded-2xl p-7"
+            >
+
+                <div
+                    class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6"
+                >
+
+                    <i
+                        class="fas fa-graduation-cap text-blue-400 text-xl"
+                    ></i>
+
+                </div>
+
+
+                <p
+                    class="text-xs text-blue-400 font-semibold uppercase tracking-wider mb-2"
+                >
+                    Sept 2023 – Aug 2027
+                </p>
+
+
+                <h3
+                    class="text-lg font-bold text-white mb-2"
+                >
+                    Nitte Meenakshi Institute of Technology
+                </h3>
+
+
+                <p
+                    class="text-sm text-gray-400 mb-3"
+                >
+                    B.E. in Information Science & Engineering
+                </p>
+
+
+                <p
+                    class="text-xs text-gray-500 mt-4"
+                >
+                    Bengaluru, Karnataka
+                </p>
+
+            </div>
+
+
+
+            <!-- PU COLLEGE -->
+
+            <div
+                class="glass-card rounded-2xl p-7"
+            >
+
+                <div
+                    class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6"
+                >
+
+                    <i
+                        class="fas fa-school text-purple-400 text-xl"
+                    ></i>
+
+                </div>
+
+
+                <p
+                    class="text-xs text-purple-400 font-semibold uppercase tracking-wider mb-2"
+                >
+                    June 2021 – March 2023
+                </p>
+
+
+                <h3
+                    class="text-lg font-bold text-white mb-2"
+                >
+                    Devika PU Science College
+                </h3>
+
+
+                <p
+                    class="text-sm text-gray-400 mb-3"
+                >
+                    XII – Science (PCMB)
+                </p>
+
+
+                <p
+                    class="text-xs text-gray-500 mt-4"
+                >
+                    Ranebennur, Karnataka
+                </p>
+
+            </div>
+
+
+
+            <!-- SCHOOL -->
+
+            <div
+                class="glass-card rounded-2xl p-7"
+            >
+
+                <div
+                    class="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-6"
+                >
+
+                    <i
+                        class="fas fa-book-open text-green-400 text-xl"
+                    ></i>
+
+                </div>
+
+
+                <p
+                    class="text-xs text-green-400 font-semibold uppercase tracking-wider mb-2"
+                >
+                    Secondary Education
+                </p>
+
+
+                <h3
+                    class="text-lg font-bold text-white mb-2"
+                >
+                    Amrutha Varshini Vidyalaya
+                </h3>
+
+
+                <p
+                    class="text-sm text-gray-400 mb-3"
+                >
+                    X
+                </p>
+
+
+                <p
+                    class="text-xs text-gray-500 mt-4"
+                >
+                    Ranibennuru, Karnataka
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     CERTIFICATIONS
+============================================================= -->
+
+<section
+    id="certifications"
+    class="py-24 bg-[#0A0E17] border-t border-white/5"
+>
+
+    <div
+        class="max-w-5xl mx-auto px-6 lg:px-8 reveal"
+    >
+
+        <div
+            class="text-center mb-14"
+        >
+
+            <p
+                class="text-sm font-semibold text-purple-400 tracking-[0.2em] uppercase mb-3"
+            >
+                Verified Learning
+            </p>
+
+
+            <h2
+                class="text-3xl md:text-4xl font-bold text-white"
+            >
+                Certifications
+            </h2>
+
+
+            <p
+                class="max-w-2xl mx-auto mt-4 text-gray-500"
+            >
+
+                Professional certificates and completed learning
+                programs.
+
+            </p>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-5"
+        >
+
+
+            <!-- GOOGLE CLOUD -->
+
+            <div
+                class="glass-card rounded-xl p-6 flex gap-4"
+            >
+
+                <div
+                    class="w-11 h-11 rounded-lg bg-blue-500/10 flex-shrink-0 flex items-center justify-center"
+                >
+
+                    <i
+                        class="fas fa-cloud text-blue-400"
+                    ></i>
+
+                </div>
+
+
                 <div>
 
-                    <h4 class="text-white font-medium mb-1">
-                        Location
-                    </h4>
+                    <h3
+                        class="text-white font-medium"
+                    >
+                        Google Cloud Engineering
+                    </h3>
 
-                    <p class="text-gray-400 text-sm">
-                        Bengaluru, Karnataka
+
+                    <p
+                        class="text-gray-500 text-sm mt-1"
+                    >
+                        Google Cloud · 2026
                     </p>
 
                 </div>
@@ -1494,48 +2883,152 @@
             </div>
 
 
-            <!-- SOCIAL -->
 
-            <div class="glass-card p-6 rounded-xl flex items-start gap-4">
+            <!-- GOOGLE UX -->
 
-                <div class="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-400 text-xl flex-shrink-0">
+            <div
+                class="glass-card rounded-xl p-6 flex gap-4"
+            >
 
-                    <i class="fas fa-share-nodes"></i>
+                <div
+                    class="w-11 h-11 rounded-lg bg-purple-500/10 flex-shrink-0 flex items-center justify-center"
+                >
+
+                    <i
+                        class="fas fa-pen-ruler text-purple-400"
+                    ></i>
 
                 </div>
 
+
                 <div>
 
-                    <h4 class="text-white font-medium mb-2">
-                        Social Profiles
-                    </h4>
+                    <h3
+                        class="text-white font-medium"
+                    >
+                        Google UX Design Professional Certificate
+                    </h3>
 
-                    <div class="flex gap-4">
 
-                        <a href="https://github.com/Tarunrn132"
-                           target="_blank"
-                           class="text-gray-400 hover:text-white transition-colors">
+                    <p
+                        class="text-gray-500 text-sm mt-1"
+                    >
+                        Google, Coursera · 2026
+                    </p>
 
-                            <i class="fab fa-github text-xl"></i>
+                </div>
 
-                        </a>
+            </div>
 
-                        <a href="https://www.linkedin.com/in/tarun-r-n-a7801a385"
-                           target="_blank"
-                           class="text-gray-400 hover:text-blue-500 transition-colors">
 
-                            <i class="fab fa-linkedin text-xl"></i>
 
-                        </a>
+            <!-- SOFTWARE ENGINEERING -->
 
-                        <a href="mailto:tarunrn13@gmail.com"
-                           class="text-gray-400 hover:text-red-400 transition-colors">
+            <div
+                class="glass-card rounded-xl p-6 flex gap-4"
+            >
 
-                            <i class="fas fa-envelope text-xl"></i>
+                <div
+                    class="w-11 h-11 rounded-lg bg-green-500/10 flex-shrink-0 flex items-center justify-center"
+                >
 
-                        </a>
+                    <i
+                        class="fas fa-code text-green-400"
+                    ></i>
 
-                    </div>
+                </div>
+
+
+                <div>
+
+                    <h3
+                        class="text-white font-medium"
+                    >
+                        Introduction to Software Engineering
+                    </h3>
+
+
+                    <p
+                        class="text-gray-500 text-sm mt-1"
+                    >
+                        Coursera · 2025
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AWS -->
+
+            <div
+                class="glass-card rounded-xl p-6 flex gap-4"
+            >
+
+                <div
+                    class="w-11 h-11 rounded-lg bg-orange-500/10 flex-shrink-0 flex items-center justify-center"
+                >
+
+                    <i
+                        class="fab fa-aws text-orange-400"
+                    ></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3
+                        class="text-white font-medium"
+                    >
+                        AWS Academy Graduate – Cloud Foundations
+                    </h3>
+
+
+                    <p
+                        class="text-gray-500 text-sm mt-1"
+                    >
+                        AWS Academy · 2025
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CISCO -->
+
+            <div
+                class="glass-card rounded-xl p-6 flex gap-4 md:col-span-2"
+            >
+
+                <div
+                    class="w-11 h-11 rounded-lg bg-cyan-500/10 flex-shrink-0 flex items-center justify-center"
+                >
+
+                    <i
+                        class="fas fa-network-wired text-cyan-400"
+                    ></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3
+                        class="text-white font-medium"
+                    >
+                        Networking Basics
+                    </h3>
+
+
+                    <p
+                        class="text-gray-500 text-sm mt-1"
+                    >
+                        Cisco · 2025
+                    </p>
 
                 </div>
 
@@ -1543,250 +3036,676 @@
 
         </div>
 
+    </div>
 
-        <!-- CONTACT FORM -->
-
-        <div class="w-full lg:w-2/3 glass-card p-8 rounded-2xl">
-
-            <form id="contact-form"
-                  action="mailto:tarunrn13@gmail.com"
-                  method="post"
-                  enctype="text/plain"
-                  class="space-y-6">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <div>
-
-                        <label for="name"
-                               class="block text-sm font-medium text-gray-400 mb-2">
-
-                            Your Name
-
-                        </label>
-
-                        <input type="text"
-                               id="name"
-                               name="Name"
-                               class="w-full bg-brand-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
-                               placeholder="Your name"
-                               required>
-
-                    </div>
+</section>
 
 
-                    <div>
 
-                        <label for="email"
-                               class="block text-sm font-medium text-gray-400 mb-2">
+<!-- ============================================================
+     RESUME
+============================================================= -->
 
-                            Your Email
+<section
+    id="resume"
+    class="py-20 bg-brand-dark"
+>
 
-                        </label>
+    <div
+        class="max-w-4xl mx-auto px-6"
+    >
 
-                        <input type="email"
-                               id="email"
-                               name="Email"
-                               class="w-full bg-brand-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
-                               placeholder="your@email.com"
-                               required>
+        <div
+            class="glass-card rounded-3xl p-10 md:p-14 text-center relative overflow-hidden reveal"
+        >
 
-                    </div>
+            <div
+                class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
+            ></div>
+
+
+            <div
+                class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
+            ></div>
+
+
+            <div
+                class="relative z-10"
+            >
+
+                <div
+                    class="w-16 h-16 mx-auto rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6"
+                >
+
+                    <i
+                        class="fas fa-file-pdf text-2xl text-red-400"
+                    ></i>
 
                 </div>
 
 
-                <div>
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-white mb-4"
+                >
+                    Want to know more?
+                </h2>
 
-                    <label for="message"
-                           class="block text-sm font-medium text-gray-400 mb-2">
 
-                        Message
+                <p
+                    class="text-gray-400 max-w-xl mx-auto mb-8"
+                >
 
-                    </label>
+                    Download my resume for a concise overview of
+                    my education, technical skills, training,
+                    projects, and certifications.
 
-                    <textarea id="message"
-                              name="Message"
-                              rows="5"
-                              class="w-full bg-brand-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none"
-                              placeholder="Hello Tarun, I'd like to talk about..."
-                              required></textarea>
+                </p>
+
+
+                <div
+                    class="flex flex-col sm:flex-row justify-center items-center gap-4"
+                >
+
+                    <a
+                        href="Tarun_resumeUPDATED.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 rounded-full btn-gradient text-white font-semibold"
+                    >
+
+                        <i
+                            class="fas fa-eye mr-3"
+                        ></i>
+
+                        View Resume
+
+                    </a>
+
+                    <a
+                        href="Tarun_resumeUPDATED.pdf"
+                        download
+                        class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 rounded-full border border-white/15 text-white hover:bg-white/10 transition font-semibold"
+                    >
+
+                        <i
+                            class="fas fa-download mr-3"
+                        ></i>
+
+                        Download Resume
+
+                    </a>
 
                 </div>
 
-
-                <button type="submit"
-                        class="w-full py-4 rounded-lg btn-gradient text-white font-bold flex justify-center items-center gap-2">
-
-                    <span>
-                        Send Message
-                    </span>
-
-                    <i class="fas fa-paper-plane"></i>
-
-                </button>
-
-            </form>
+            </div>
 
         </div>
 
     </div>
 
-</div>
-```
-
 </section>
 
-<!-- ================= FOOTER ================= -->
 
-<footer class="bg-brand-dark border-t border-white/5 py-10 relative z-10">
 
-```
-<div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- ============================================================
+     CONTACT
+============================================================= -->
 
-    <div class="text-xl font-bold tracking-tighter text-white">
+<section
+    id="contact"
+    class="py-24 bg-[#0A0E17] border-t border-white/5"
+>
 
-        TARUN<span class="text-blue-500"> RN</span>
+    <div
+        class="max-w-6xl mx-auto px-6 lg:px-8 reveal"
+    >
+
+        <div
+            class="text-center mb-14"
+        >
+
+            <p
+                class="text-sm font-semibold text-purple-400 tracking-[0.2em] uppercase mb-3"
+            >
+                Contact
+            </p>
+
+
+            <h2
+                class="text-3xl md:text-4xl font-bold text-white"
+            >
+                Let's Connect
+            </h2>
+
+
+            <p
+                class="text-gray-500 mt-4"
+            >
+
+                Have an opportunity, collaboration, or interesting
+                idea? Feel free to reach out.
+
+            </p>
+
+        </div>
+
+
+        <div
+            class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5"
+        >
+
+
+            <!-- EMAIL -->
+
+            <a
+                href="mailto:tarunrn13@gmail.com"
+                class="glass-card rounded-2xl p-7 text-center group"
+            >
+
+                <div
+                    class="w-14 h-14 mx-auto rounded-full bg-blue-500/10 flex items-center justify-center mb-5"
+                >
+
+                    <i
+                        class="fas fa-envelope text-blue-400 text-xl"
+                    ></i>
+
+                </div>
+
+
+                <h3
+                    class="text-white font-semibold mb-2"
+                >
+                    Email
+                </h3>
+
+
+                <p
+                    class="text-gray-500 text-sm break-all group-hover:text-blue-400 transition"
+                >
+                    tarunrn13@gmail.com
+                </p>
+
+            </a>
+
+
+
+            <!-- LINKEDIN -->
+
+            <a
+                href="https://www.linkedin.com/in/tarun-r-n-a7801a385"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="glass-card rounded-2xl p-7 text-center group"
+            >
+
+                <div
+                    class="w-14 h-14 mx-auto rounded-full bg-blue-500/10 flex items-center justify-center mb-5"
+                >
+
+                    <i
+                        class="fab fa-linkedin-in text-blue-400 text-xl"
+                    ></i>
+
+                </div>
+
+
+                <h3
+                    class="text-white font-semibold mb-2"
+                >
+                    LinkedIn
+                </h3>
+
+
+                <p
+                    class="text-gray-500 text-sm group-hover:text-blue-400 transition"
+                >
+                    Connect with me
+                </p>
+
+            </a>
+
+
+
+            <!-- GITHUB -->
+
+            <a
+                href="https://github.com/Tarunrn132"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="glass-card rounded-2xl p-7 text-center group"
+            >
+
+                <div
+                    class="w-14 h-14 mx-auto rounded-full bg-white/5 flex items-center justify-center mb-5"
+                >
+
+                    <i
+                        class="fab fa-github text-white text-xl"
+                    ></i>
+
+                </div>
+
+
+                <h3
+                    class="text-white font-semibold mb-2"
+                >
+                    GitHub
+                </h3>
+
+
+                <p
+                    class="text-gray-500 text-sm group-hover:text-white transition"
+                >
+                    View my repositories
+                </p>
+
+            </a>
+
+        </div>
 
     </div>
 
-
-    <p class="text-gray-500 text-sm">
-
-        &copy;
-
-        <script>
-            document.write(new Date().getFullYear());
-        </script>
-
-        Tarun R Naik. All rights reserved.
-
-    </p>
+</section>
 
 
-    <button id="back-to-top"
-            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all">
 
-        <i class="fas fa-arrow-up"></i>
+<!-- ============================================================
+     FOOTER
+============================================================= -->
 
-    </button>
+<footer
+    class="bg-brand-dark border-t border-white/5 py-8"
+>
 
-</div>
-```
+    <div
+        class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-5"
+    >
+
+        <div
+            class="text-lg font-bold text-white"
+        >
+
+            TARUN
+
+            <span class="text-blue-500">
+                R NAIK
+            </span>
+
+        </div>
+
+
+        <p
+            class="text-gray-500 text-sm text-center"
+        >
+
+            ©
+
+            <span id="current-year"></span>
+
+            Tarun R Naik.
+            All rights reserved.
+
+        </p>
+
+
+        <button
+            id="back-to-top"
+            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition"
+            aria-label="Back to top"
+        >
+
+            <i
+                class="fas fa-arrow-up"
+            ></i>
+
+        </button>
+
+    </div>
 
 </footer>
 
-<!-- ================= JAVASCRIPT ================= -->
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================= -->
 
 <script>
 
-    // Mobile Menu Toggle
 
-    const btn = document.getElementById('mobile-menu-btn');
+    /* =========================================================
+       CURRENT YEAR
+    ========================================================== */
 
-    const menu = document.getElementById('mobile-menu');
-
-    btn.addEventListener('click', () => {
-
-        menu.classList.toggle('hidden');
-
-    });
+    document.getElementById(
+        "current-year"
+    ).textContent =
+        new Date().getFullYear();
 
 
-    // Close mobile menu on link click
 
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
+    /* =========================================================
+       MOBILE MENU
+    ========================================================== */
 
-        link.addEventListener('click', () => {
-
-            menu.classList.add('hidden');
-
-        });
-
-    });
+    const mobileMenuButton =
+        document.getElementById(
+            "mobile-menu-btn"
+        );
 
 
-    // Sticky Navbar Effect
+    const mobileMenu =
+        document.getElementById(
+            "mobile-menu"
+        );
 
-    const navbar = document.getElementById('navbar');
 
-    window.addEventListener('scroll', () => {
+    mobileMenuButton.addEventListener(
+        "click",
+        () => {
 
-        if (window.scrollY > 50) {
+            mobileMenu.classList.toggle(
+                "hidden"
+            );
 
-            navbar.classList.add('shadow-lg', 'bg-brand-dark/90');
 
-            navbar.classList.remove('bg-transparent');
+            const icon =
+                mobileMenuButton.querySelector(
+                    "i"
+                );
 
-        } else {
 
-            navbar.classList.remove('shadow-lg', 'bg-brand-dark/90');
+            if (
+                mobileMenu.classList.contains(
+                    "hidden"
+                )
+            ) {
 
-            navbar.classList.add('bg-transparent');
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+            } else {
+
+                icon.classList.remove(
+                    "fa-bars"
+                );
+
+                icon.classList.add(
+                    "fa-xmark"
+                );
+
+            }
 
         }
-
-    });
-
-
-    // Scroll Reveal Animation
-
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const revealOptions = {
-
-        threshold: 0.15,
-
-        rootMargin: "0px 0px -50px 0px"
-
-    };
-
-
-    const revealOnScroll = new IntersectionObserver(
-
-        function(entries, observer) {
-
-            entries.forEach(entry => {
-
-                if (!entry.isIntersecting) return;
-
-                entry.target.classList.add('active');
-
-                observer.unobserve(entry.target);
-
-            });
-
-        },
-
-        revealOptions
-
     );
 
 
-    revealElements.forEach(el => {
 
-        revealOnScroll.observe(el);
+    /* =========================================================
+       CLOSE MOBILE MENU
+    ========================================================== */
 
-    });
+    document
+        .querySelectorAll(
+            ".mobile-link"
+        )
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mobileMenu.classList.add(
+                        "hidden"
+                    );
 
 
-    // Back To Top
+                    const icon =
+                        mobileMenuButton.querySelector(
+                            "i"
+                        );
 
-    const backToTopBtn = document.getElementById('back-to-top');
 
-    backToTopBtn.addEventListener('click', () => {
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
 
-        window.scrollTo({
 
-            top: 0,
+                    icon.classList.add(
+                        "fa-bars"
+                    );
 
-            behavior: 'smooth'
+                }
+            );
 
         });
 
-    });
+
+
+    /* =========================================================
+       NAVBAR SCROLL
+    ========================================================== */
+
+    const navbar =
+        document.getElementById(
+            "navbar"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (
+                window.scrollY > 50
+            ) {
+
+                navbar.classList.add(
+                    "shadow-2xl",
+                    "bg-[#0B0F19]/90"
+                );
+
+            } else {
+
+                navbar.classList.remove(
+                    "shadow-2xl",
+                    "bg-[#0B0F19]/90"
+                );
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================== */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            (entries, observer) => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            !entry.isIntersecting
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        entry.target.classList.add(
+                            "active"
+                        );
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+                );
+
+            },
+
+            {
+                threshold: 0.12,
+
+                rootMargin:
+                    "0px 0px -40px 0px"
+            }
+
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================== */
+
+    const backToTop =
+        document.getElementById(
+            "back-to-top"
+        );
+
+
+    backToTop.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+    );
+
+
+
+    /* =========================================================
+       ACTIVE NAVIGATION
+    ========================================================== */
+
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+
+    const navLinks =
+        document.querySelectorAll(
+            "nav a[href^='#']"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            let currentSection =
+                "";
+
+
+            sections.forEach(
+                section => {
+
+                    const sectionTop =
+                        section.offsetTop -
+                        150;
+
+
+                    if (
+                        window.scrollY >=
+                        sectionTop
+                    ) {
+
+                        currentSection =
+                            section.getAttribute(
+                                "id"
+                            );
+
+                    }
+
+                }
+            );
+
+
+            navLinks.forEach(
+                link => {
+
+                    link.classList.remove(
+                        "text-white"
+                    );
+
+
+                    link.classList.add(
+                        "text-gray-300"
+                    );
+
+
+                    if (
+                        link.getAttribute(
+                            "href"
+                        ) ===
+                        "#" +
+                        currentSection
+                    ) {
+
+                        link.classList.remove(
+                            "text-gray-300"
+                        );
+
+
+                        link.classList.add(
+                            "text-white"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
 
 </script>
 
+
 </body>
+
 </html>
